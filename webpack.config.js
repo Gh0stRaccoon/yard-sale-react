@@ -7,8 +7,20 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: 'bundle.[contenthash].js',
+		assetModuleFilename: 'assets/images/[hash][ext][query]',
+		publicPath: '/',
 	},
+	mode: 'production',
 	resolve: {
+		alias: {
+			'@hooks': path.resolve(__dirname, './src/hooks/'),
+			'@components': path.resolve(__dirname, './src/components/'),
+			'@containers': path.resolve(__dirname, './src/containers/'),
+			'@pages': path.resolve(__dirname, './src/pages/'),
+			'@styles': path.resolve(__dirname, './src/styles/'),
+			'@logos': path.resolve(__dirname, './src/assets/logos/'),
+			'@icons': path.resolve(__dirname, './src/assets/icons/'),
+		},
 		extensions: ['.js', '.jsx'],
 	},
 	module: {
@@ -19,6 +31,10 @@ module.exports = {
 				use: {
 					loader: 'babel-loader',
 				},
+			},
+			{
+				test: /\.(png|jpg|svg|gif)$/,
+				type: 'asset/resource',
 			},
 			{
 				test: /\.html$/,
