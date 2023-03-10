@@ -1,0 +1,96 @@
+@import 'vars';
+
+.MyOrder {
+	width: 360px;
+	height: fit-content;
+	padding: 24px;
+	box-sizing: border-box;
+	position: absolute;
+	right: 0;
+	background-color: var(--white);
+	top: 60px;
+	bottom: 0;
+	border-radius: 6px;
+	border: 1px solid var(--very-light-pink);
+}
+.title-container {
+	display: flex;
+}
+.title-container img {
+	transform: rotate(180deg);
+	margin-right: 14px;
+}
+.title {
+	font-size: var(--lg);
+	font-weight: bold;
+}
+.my-order-items {
+	max-height: 500px;
+	overflow-y: auto;
+}
+
+.my-order-items::-webkit-scrollbar{
+	width: 8px;
+}
+
+.my-order-items::-webkit-scrollbar-thumb{
+	background-color: var(--hospital-green);
+	border-radius: 4px;
+}
+
+.my-order-empty {
+	display: grid;
+	place-items: center;
+}
+
+.my-order-empty > p {
+	font-size: 24px;
+	font-weight: bold;
+	color: var(--hospital-green);
+	margin: 0;
+}
+
+.my-order-empty > span {
+	font-weight: lighter;
+	margin-bottom: 16px;
+}
+
+.order {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 16px;
+	align-items: center;
+	background-color: var(--text-input-field);
+	margin-bottom: 24px;
+	border-radius: 8px;
+	padding: 0 24px;
+}
+.order p:nth-child(1) {
+	display: flex;
+	flex-direction: column;
+}
+.order p span:nth-child(1) {
+	font-size: var(--md);
+	font-weight: bold;
+}
+.order p:nth-child(2) {
+	text-align: end;
+	font-weight: bold;
+}
+
+.primary-button {
+	background-color: var(--hospital-green);
+	border-radius: 8px;
+	border: none;
+	color: var(--white);
+	width: 100%;
+	cursor: pointer;
+	font-size: var(--md);
+	font-weight: bold;
+	height: 50px;
+}
+@media (max-width: 640px) {
+	.MyOrder {
+		width: 100%;
+	}
+}
