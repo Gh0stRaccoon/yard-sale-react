@@ -16,7 +16,11 @@ import { AppProvider } from '../context/AppContext';
 
 const App = () => {
 	return (
-		<BrowserRouter>
+		<BrowserRouter
+			basename={
+				process.env.NODE_ENV !== 'production' ? '/' : '/yard-sale-react'
+			}
+		>
 			<AppProvider>
 				<Routes>
 					<Route path="/" element={<Layout />}>
